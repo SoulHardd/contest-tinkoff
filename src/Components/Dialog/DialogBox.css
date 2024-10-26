@@ -1,25 +1,26 @@
 .dialog-box {
-    width: 75%; /* Ширина 3/4 экрана */
-    max-width: 800px; /* Максимальная ширина для больших экранов */
-    margin: 0 auto; /* Выравнивание по центру */
-    border: 2px solid #ccc; /* Цвет и толщина рамки */
-    border-radius: 10px; /* Закругленные углы */
-    overflow-y: auto; /* Прокрутка по вертикали */
-    max-height: 500px; /* Ограничение высоты для прокрутки */
-    padding: 15px; /* Внутренние отступы */
-    background-color: #f9f9f9; /* Цвет фона */
+    width: 75%;
+    max-width: 800px; 
+    margin: 0 auto; 
+    border: 2px solid #ccc; 
+    border-radius: 10px; 
+    overflow-y: auto; 
+    max-height: 500px;
+    padding: 15px; 
+    background-color: #f9f9f9; 
+	height: 500px;
 }
 
 .dialog-messages {
     display: flex;
-    flex-direction: column; /* Выравнивание элементов по вертикали */
+    flex-direction: column; 
 }
 
 .dialog-message {
-    margin: 5px 0; /* Отступ между сообщениями */
+    margin: 5px 0;
 }
 
-/* Стили для сообщений родителей и детей */
+
 .dialog-message.parent {
     padding: 10px;
     border-radius: 5px;

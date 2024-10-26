@@ -1,9 +1,10 @@
 .file-input-container {
 	width: 100%;
-	max-width: 400px;
+	max-width: 500px;
 	margin: auto;
 	padding: 20px;
 	background-color: white;
+    flex-grow: 0;
 }
 
 .upload-form {
@@ -14,9 +15,9 @@
 
 .drop-area {
 	width: 100%;
-	min-height: 200px;
-	border: 2px dashed #f0c040; /* Цвет рамки */
-	border-radius: 16px;
+	min-height: 250px;
+	border: 3px dashed black;
+	border-radius: 32px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -26,32 +27,45 @@
 }
 
 .drop-area:hover {
-	border-color: #ccae30; /* Цвет рамки при наведении */
-	background-color: rgba(240, 192, 64, 0.1); /* Легкий фон */
+	background-color: rgba(240, 192, 64, 0.1);
 }
 
 .upload-text {
-	font-size: 24px; /* Размер текста */
-	font-weight: bold; /* Жирный текст */
-	color: black; /* Цвет текста */
+	font-size: 32px;
+	font-weight: bold; 
+	color: black; 
 	text-align: center;
+    z-index: 1;
+}
+
+.upload-image {
+    transform: translate(-50%, -50%);
+    top: 45%;
+    left: 50%;
+    z-index: 0;
+    width: 100%; 
+    max-width: 250px;
+    max-height: 250px;
+    height: 100%;
+    position: absolute;
 }
 
 
 .upload-button {
-    margin-top: 12px;
-    padding: 5px 10px; /* Изменено для уменьшения ширины */
-    background-color: transparent; /* Делаем кнопку прозрачной */
-    color: black; /* Цвет текста */
-    border: 1px solid black; /* Добавляем рамку для видимости */
+    margin-top: 25px;
+    padding: 10px 20px;
+    background-color: transparent; 
+    color: black; 
+    border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: bold; /* Делаем текст жирным */
-    transition: gray 0.3s; /* Добавляем эффект при наведении */
+    font-weight: bold;
+    font-size: 15px;
+    transition: gray 0.3s;
 }
 
 
 .upload-button:hover {
-    background-color: gray; /* Цвет фона при наведении */
-    color: white; /* Цвет текста при наведении */
+    background-color: rgba(240, 192, 64, 0.1);
 }
+

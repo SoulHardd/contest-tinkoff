@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { DialogMessage } from "./DialogMessage";
-import "./DialogBox.css"
+import "./DialogBox.css";
 
 export function DialogBox({ fileContent }) {
 	const [messages, setMessages] = useState([]);
+	const [currentIndex, setCurrentIndex] = useState(0);
 
 	useEffect(() => {
 		if (fileContent) {
@@ -19,7 +20,8 @@ export function DialogBox({ fileContent }) {
 		let parentMatches = [];
 		let childMatches = [];
 
-		// Получаем все сообщения родителей
+		content = content.replace(/[\t\n]/g, ' ');
+
 		let match;
 		while ((match = parentRegex.exec(content)) !== null) {
 			parentMatches.push({
@@ -28,7 +30,6 @@ export function DialogBox({ fileContent }) {
 			});
 		}
 
-		// Получаем все сообщения детей
 		while ((match = childRegex.exec(content)) !== null) {
 			childMatches.push({
 				speaker: "child",
@@ -36,7 +37,6 @@ export function DialogBox({ fileContent }) {
 			});
 		}
 
-		// Чередуем сообщения родителей и детей
 		const maxLength = Math.max(parentMatches.length, childMatches.length);
 		for (let i = 0; i < maxLength; i++) {
 			if (i < childMatches.length) {
@@ -48,12 +48,26 @@ export function DialogBox({ fileContent }) {
 		}
 
 		setMessages(dialogMessages);
+		startDisplayingMessages(dialogMessages);
+	};
+
+	const startDisplayingMessages = (dialogMessages) => {
+		let index = 0;
+
+		const interval = setInterval(() => {
+			if (index < dialogMessages.length) {
+				setCurrentIndex((prev) => prev + 1);
+				index++;
+			} else {
+				clearInterval(interval);
+			}
+		}, 2000);
 	};
 
 	return (
 		<div className="dialog-box">
 			<div className="dialog-messages">
-				{messages.map((msg, index) => (
+				{messages.slice(0, currentIndex).map((msg, index) => (
 					<DialogMessage
 						key={index}
 						speaker={msg.speaker}

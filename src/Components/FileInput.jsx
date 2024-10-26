@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./FileInput.css";
+import image from "../Icons/LoadArrow.png"
 
 export function FileInput({ onUploadComplete }) {
 	const [file, setFile] = useState(null);
@@ -57,6 +58,7 @@ export function FileInput({ onUploadComplete }) {
 					) : (
 						<span className="upload-text">
 							Загрузить файл
+                            <img src={image} alt="" className="upload-image"/>
 						</span>
 					)}
 					<input

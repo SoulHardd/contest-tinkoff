@@ -1,0 +1,45 @@
+.dialog-message {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.parent {
+	flex-direction: row;
+}
+
+.child {
+	flex-direction: row-reverse;
+}
+
+.avatar-container {
+	margin-right: 10px;
+}
+
+.avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #ccc;
+}
+
+.message-container {
+	position: relative;
+}
+
+.message {
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #f5f5f5;
+	max-width: 300px;
+	word-wrap: break-word;
+}
+
+.parent-message {
+	margin-left: 10px;
+}
+
+.child-message {
+	margin-right: 10px;
+}
+

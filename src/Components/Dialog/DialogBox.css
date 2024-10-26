@@ -1,0 +1,14 @@
+.dialog-box {
+	width: 400px; /* или любой другой фиксированный размер */
+	height: 600px; /* или любой другой фиксированный размер */
+	overflow-y: auto; /* Прокрутка вниз */
+	border: 1px solid #ccc;
+	background-color: #f9f9f9;
+	padding: 16px;
+	border-radius: 8px;
+}
+
+.dialog-messages {
+	display: flex;
+	flex-direction: column;
+}

@@ -1,47 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import axios from "axios";
 import "./FileInput.css";
-import image from "../Icons/LoadArrow.png"
+import image from "../Icons/LoadArrow.png";
 
 export function FileInput({ onUploadComplete }) {
-	const [file, setFile] = useState(null);
-	const [uploading, setUploading] = useState(false);
-	const [progress, setProgress] = useState(0);
+ const [file, setFile] = useState("");
+ const [data, setData] = useState({ name: "", path: "" });
+ const [progress, setProgress] = useState(0);
+ const [uploading, setUploading] = useState(false); // added for upload state
+ const el = useRef();
 
-	const handleFileChange = (event) => {
-		setFile(event.target.files[0]);
-	};
+ const handleFileChange = (e) => {
+  setProgress(0);
+  const selectedFile = e.target.files[0];
+  console.log(selectedFile);
+  setFile(selectedFile);
+ };
 
-	const handleSubmit = async (event) => {
-		event.preventDefault();
-		if (!file) {
-			alert("Пожалуйста, выберите файл формата .txt.");
-			return;
-		}
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setUploading(true); // start upload state
+  const formData = new FormData();
+  formData.append("file", file);
 
-		setUploading(true);
+  try {
+   const res = await axios.post("http://localhost:3001/", formData, {
+    onUploadProgress: (ProgressEvent) => {
+     const percentCompleted = Math.round(
+      (ProgressEvent.loaded * 100) / ProgressEvent.total
+     );
+     setProgress(percentCompleted);
+    },
+   });
 
-		try {
-			const response = await fetch("ССЫЛКА НА СЕРВ", {
-				method: "POST",
-				body: file,
-			});
-
-			if (!response.ok) {
-				throw new Error(`Ошибка загрузки: ${response.status}`);
-			}
-
-			const data = await response.text();
-			onUploadComplete(data);
-
-			alert("Файл успешно загружен!");
-		} catch (error) {
-			alert(`Произошла ошибка при загрузке файла: ${error.message}`);
-		} finally {
-			setUploading(false);
-			setProgress(0);
-			setFile(null);
-		}
-	};
+   console.log(res);
+   setData({
+    name: res.data.name,
+    path: "http://localhost:3001" + res.data.path,
+   });
+   if (onUploadComplete) onUploadComplete(res.data);
+  } catch (err) {
+   console.error(err);
+  } finally {
+   setUploading(false); // end upload state
+  }
+ };
 
 	return (
 		<div className="file-input-container">

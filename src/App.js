@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FileInput } from './Components/FileInput';
 import { DialogBox } from './Components/Dialog/DialogBox';
+
 
 function App() {
   const [fileContent, setFileContent] = useState(null);
@@ -24,7 +25,7 @@ function App() {
       ) : (
         <>
           <FileInput onFileLoad={handleFileLoad} />
-          {fileContent && <DialogBox content={fileContent} />}
+          {fileContent && <DialogBox fileContent={fileContent} />}
         </>
       )}
     </div>

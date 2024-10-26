@@ -1,14 +1,31 @@
 .dialog-box {
-	width: 400px; /* или любой другой фиксированный размер */
-	height: 600px; /* или любой другой фиксированный размер */
-	overflow-y: auto; /* Прокрутка вниз */
-	border: 1px solid #ccc;
-	background-color: #f9f9f9;
-	padding: 16px;
-	border-radius: 8px;
+    width: 75%; /* Ширина 3/4 экрана */
+    max-width: 800px; /* Максимальная ширина для больших экранов */
+    margin: 0 auto; /* Выравнивание по центру */
+    border: 2px solid #ccc; /* Цвет и толщина рамки */
+    border-radius: 10px; /* Закругленные углы */
+    overflow-y: auto; /* Прокрутка по вертикали */
+    max-height: 500px; /* Ограничение высоты для прокрутки */
+    padding: 15px; /* Внутренние отступы */
+    background-color: #f9f9f9; /* Цвет фона */
 }
 
 .dialog-messages {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column; /* Выравнивание элементов по вертикали */
+}
+
+.dialog-message {
+    margin: 5px 0; /* Отступ между сообщениями */
+}
+
+/* Стили для сообщений родителей и детей */
+.dialog-message.parent {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.dialog-message.child {
+    padding: 10px;
+    border-radius: 5px;
 }

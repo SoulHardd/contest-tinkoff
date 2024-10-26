@@ -1,58 +1,57 @@
 .file-input-container {
-    width: 100%;
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    background-color: #f9f9f9;
+	width: 100%;
+	max-width: 400px;
+	margin: auto;
+	padding: 20px;
+	background-color: white;
 }
 
 .upload-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .drop-area {
-    width: 100%;
-    min-height: 200px;
-    border: 2px dashed #007bff;
-    border-radius: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: border-color 0.3s;
+	width: 100%;
+	min-height: 200px;
+	border: 2px dashed #f0c040; /* Цвет рамки */
+	border-radius: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	cursor: pointer;
+	transition: border-color 0.3s;
 }
 
 .drop-area:hover {
-    border-color: #0056b3;
+	border-color: #ccae30; /* Цвет рамки при наведении */
+	background-color: rgba(240, 192, 64, 0.1); /* Легкий фон */
 }
 
-.upload-progress {
-    width: 100%;
-    height: 10px;
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    margin-top: 10px;
+.upload-text {
+	font-size: 24px; /* Размер текста */
+	font-weight: bold; /* Жирный текст */
+	color: black; /* Цвет текста */
+	text-align: center;
 }
 
-.progress-bar {
-    height: 100%;
-    background-color: #007bff;
-    border-radius: 5px;
-    transition: width 0.2s;
-}
 
 .upload-button {
     margin-top: 12px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
+    padding: 5px 10px; /* Изменено для уменьшения ширины */
+    background-color: transparent; /* Делаем кнопку прозрачной */
+    color: black; /* Цвет текста */
+    border: 1px solid black; /* Добавляем рамку для видимости */
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold; /* Делаем текст жирным */
+    transition: gray 0.3s; /* Добавляем эффект при наведении */
 }
 
-.upload-button:disabled {
-    background-color: #85c1ff;
+
+.upload-button:hover {
+    background-color: gray; /* Цвет фона при наведении */
+    color: white; /* Цвет текста при наведении */
 }

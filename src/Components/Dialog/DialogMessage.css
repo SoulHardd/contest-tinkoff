@@ -5,11 +5,11 @@
 }
 
 .parent {
-	flex-direction: row;
+	flex-direction: row-reverse;
 }
 
 .child {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 .avatar-container {
@@ -36,10 +36,10 @@
 }
 
 .parent-message {
-	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .child-message {
-	margin-right: 10px;
+	margin-left: 10px;
 }
 

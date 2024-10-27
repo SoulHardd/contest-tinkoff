@@ -2,20 +2,17 @@ import React, { useState } from "react";
 import { FileInput } from "./Components/FileInput";
 import { DialogBox } from "./Components/Dialog/DialogBox";
 import "./App.css";
+import LinkInput from "./Components/LinkInput";
+
 
 function App() {
-	const [fileContent, setFileContent] = useState(null);
+	const [dataContent, setDataContent] = useState(null);
 	const [loading, setLoading] = useState(false);
 
-	const handleFileLoad = async (content) => {
+	const handleDataLoad = (content) => {
 		setLoading(true);
-		setFileContent(content);
-		await fetchServerResponse();
+		setDataContent(content);
 		setLoading(false);
-	};
-
-	const fetchServerResponse = () => {
-		return new Promise((resolve) => setTimeout(resolve, 2000));
 	};
 
 	return (
@@ -26,8 +23,9 @@ function App() {
 				</div>
 			) : (
 				<>
-					<FileInput onFileLoad={handleFileLoad} />
-					{fileContent && <DialogBox fileContent={fileContent} />}
+					{!dataContent && <FileInput onFileLoad={handleDataLoad} />}
+					{dataContent && <DialogBox fileContent={dataContent} />}
+          {!dataContent && <LinkInput onLinkLoad={handleDataLoad} />}
 				</>
 			)}
 		</div>

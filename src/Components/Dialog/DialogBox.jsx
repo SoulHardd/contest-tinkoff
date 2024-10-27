@@ -20,7 +20,7 @@ export function DialogBox({ fileContent }) {
 		let parentMatches = [];
 		let childMatches = [];
 
-		content = content.replace(/[\t\n]/g, ' ');
+		content = content.replace(/[\t\n]/g, " ");
 
 		let match;
 		while ((match = parentRegex.exec(content)) !== null) {

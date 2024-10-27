@@ -1,0 +1,53 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100px; /* Задайте нужную высоту */
+	padding: 0 20px; /* Задайте нужный отступ */
+	border-bottom: none; /* Убираем полоску снизу */
+}
+
+.register-button {
+	position: relative;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+
+.register-button::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border: 2px solid blue;
+	transform: rotate(2deg);
+	z-index: -1;
+}
+
+.register-button:hover::before {
+    transform: rotate(0deg);
+}
+
+.register-text {
+	color: black;
+	font-size: 18px;
+	position: relative;
+	z-index: 1;
+}
+
+.register-back {
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	z-index: 0;
+	width: 160px;
+	height: auto;
+	position: absolute;
+}
+
+.logo {
+	width: 150px;
+	height: auto;
+}

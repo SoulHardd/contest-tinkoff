@@ -1,0 +1,51 @@
+.link-input {
+	display: flex;
+	align-items: center;
+	max-width: 600px;
+	margin: 20px auto;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.link-input input {
+	flex: 1;
+	border: 2px solid #ccc;
+	outline: none;
+	padding: 10px;
+	font-size: 16px;
+	background-color: #fff;
+	border-radius: 5px 0 0 5px;
+}
+
+.link-input input::placeholder {
+	color: #888;
+}
+
+.submit-button {
+	background-color: transparent;
+	border: 2px solid #ccc;
+	cursor: pointer;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	border-radius: 0 5px 5px 0;
+}
+
+.submit-button img {
+	width: 19px;
+	height: 19px;
+	transition: transform 0.3s;
+}
+
+.submit-button:hover img {
+	transform: translateY(-2px);
+}
+
+.submit-button:focus {
+	outline: none;
+}
+
+.uploading {
+	opacity: 0.6;
+	pointer-events: none;
+}
